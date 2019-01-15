@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ReceiptPage extends PageObject {
+public class ReceiptPage extends PageObject<ReceiptPage> {
 
 	@FindBy(tagName = "h1")
 	private WebElement header;
@@ -17,8 +17,20 @@ public class ReceiptPage extends PageObject {
 		return header.isDisplayed();
 	}
 
-	public String confirmationHeader(){
+	public String getConfirmationHeader(){
 		return header.getText();
+	}
+
+	@Override
+	protected void isLoaded() throws Error {
+		if (!header.isDisplayed()) {
+			throw new Error("Recipe Page not loaded!");
+		}
+	}
+
+	@Override
+	protected void load() {
+		// EMPTY
 	}
 
 }
