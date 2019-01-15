@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * <strong>FunctionalTest</strong> handles setup and teardown of WebDriver.
@@ -18,7 +18,7 @@ public class FunctionalTest {
 	
 	@BeforeClass
 	public static void setUp(){
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
